@@ -14,8 +14,8 @@
             <a href="altaEmpleados.php">Registro de empleados</a>
         </div>
         <br>
-        <h1>Tabla de empleados</h1>
-        <br>     <br><br><br>
+        <h1 class="MainTitle">Tabla de empleados</h1>
+        <br><br><br><br>
         <div class="conteiner">
             <table>
                 <tr class="TableHeader">
@@ -31,26 +31,26 @@
                 require "conecta.php";
                 $con = conecta();
                 $sql = "SELECT * FROM empleado
-                        WHERE status = 1 AND eliminado = 0";
+                                WHERE status = 1 AND eliminado = 0";
                 $res = $con->query($sql);
                 while($row = $res->fetch_array()) {
-                $id = $row["id"];
-                $nombre = $row["nombre"];
-                $apellido = $row["apellido"];
-                $correo = $row["correo"];
-                $rol = $row["rol"];
-                if($rol == 1) $explirol = 'Gerente';
-                else $explirol = 'Ejecutivo';
-                ?>
-                <tr>
-                    <td class="id"><?php echo $id ?></td>
-                    <td class="name"><?php echo $nombre ?></td>
-                    <td class="email"><?php echo $correo ?></td>
-                    <td class="rol"><?php echo $explirol ?></td>
-                    <td class="buttons"><button type="submit" onclick="profileDetails(<?php echo $id ?>)">Ver</button></td>
-                    <td class="buttons"><button type="submit" onclick="editProfile(<?php echo $id ?>)">Editar</button></td>
-                    <td class="buttons" ><button onclick="deleteThis(this,<?php echo $id ?>);return false;">Eliminar</button></td>
-                </tr>
+                    $id = $row["id"];
+                    $nombre = $row["nombre"];
+                    $apellido = $row["apellido"];
+                    $correo = $row["correo"];
+                    $rol = $row["rol"];
+                    if($rol == 1) $explirol = 'Gerente';
+                    else $explirol = 'Ejecutivo';
+                    ?>
+                    <tr>
+                        <td class="id"><?php echo $id ?></td>
+                        <td class="name"><?php echo $nombre ?></td>
+                        <td class="email"><?php echo $correo ?></td>
+                        <td class="rol"><?php echo $explirol ?></td>
+                        <td class="buttons"><button type="submit" onclick="profileDetails(<?php echo $id ?>)">Ver</button></td>
+                        <td class="buttons"><button type="submit" onclick="editProfile(<?php echo $id ?>)">Editar</button></td>
+                        <td class="buttons" ><button onclick="deleteThis(this,<?php echo $id ?>);return false;">Eliminar</button></td>
+                    </tr>
                 <?php }?>
             </table>
         </div>

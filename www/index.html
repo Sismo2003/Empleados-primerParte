@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login in</title>
+        <script src="javaScript/jquery-3.3.1.min.js"></script>
+        <script src="javaScript/login.js"></script>
+        <link rel="stylesheet" href="styles/index.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="index.php" class="active">LOGIN</a>
+        </div>
+        <h1 class="MainTitle">LOGIN</h1>
+        <div class="conteiner">
+            <div class="frame">
+                <form>
+                    <input class="inputs" type="email" name="name" id="entryName" autocomplete="off" placeholder="Correo">
+                    <br>
+                    <input  class="inputs" type="password" name="pass" id="pass" autocomplete="off"  placeholder="Contraseña">
+                    <br>
+                    <input class="buttons" type="submit" onclick="loginIn();return false;" value="Enviar"/>
+                    <br>
+                    <div class="errormessage"></div>
+                </form>
+            </div>
+
+        </div>
+    </body>
+</html>
