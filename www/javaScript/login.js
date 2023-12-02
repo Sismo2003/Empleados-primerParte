@@ -10,7 +10,7 @@ function loginIn(){
         var ruta = "email="+correo+"&passw="+passw;
         $.ajax(
             {
-                url:"../BackEnd/verifyLogIn.php",
+                url:"BackEnd/verifyLogIn.php",
                 type:'POST',
                 dataType:'text',
                 data:ruta,
@@ -20,7 +20,7 @@ function loginIn(){
                         $('.errormessage').html('Datos incorrectos');
                         setTimeout("$('.errormessage').hide(); $('.errormessage').html('')",5000);
                     }else{
-                        window.location.href='tableEmpleoyees.php';
+                        window.location.href='FrontEnd/menu.php';
                     }
                 },
                 error:function (){

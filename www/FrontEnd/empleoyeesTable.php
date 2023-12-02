@@ -2,17 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>B3</title>
-        <link rel="stylesheet" href="styles/tablaempleados.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="programacion.js"></script>
+        <title>Tabla de Empleados</title>
+        <link rel="stylesheet" href="../styles/employeesTable.css">
+        <script src="../javaScript/jquery-3.3.1.min.js"></script>
+        <script src="../javaScript/employeesTable.js"></script>
     </head>
     <body>
         <div class="topnav">
-            <a class="active" href="tableempleoyees.php">Tabla de empleados</a>
-            <a href="altaEmpleados.php">Registro de empleados</a>
+            <a href="menu.php">Bienvenido</a>
+            <a href="empleoyeesTable.php" class="active">Tabla de empleados</a>
+            <a href="createEmployee.php">Registro de empleados</a>
+            <a href="">Productos</a>
+            <a href="">Promociones</a>
+            <a href="">Pedidos</a>
+            <a href="exitSession.php">Cerrar Sesion</a>
         </div>
+
         <br>
         <h1 class="MainTitle">Tabla de empleados</h1>
         <br><br><br><br>
@@ -28,7 +33,7 @@
                     <th >ELIMINAR</th>
                 </tr>
                 <?php
-                require "conecta.php";
+                require "../BackEnd/conecta.php";
                 $con = conecta();
                 $sql = "SELECT * FROM empleado
                                 WHERE status = 1 AND eliminado = 0";
@@ -49,7 +54,7 @@
                         <td class="rol"><?php echo $explirol ?></td>
                         <td class="buttons"><button type="submit" onclick="profileDetails(<?php echo $id ?>)">Ver</button></td>
                         <td class="buttons"><button type="submit" onclick="editProfile(<?php echo $id ?>)">Editar</button></td>
-                        <td class="buttons" ><button onclick="deleteThis(this,<?php echo $id ?>);return false;">Eliminar</button></td>
+                        <td class="buttons" ><button onclick="deleteProfile(this,<?php echo $id ?>);return false;">Eliminar</button></td>
                     </tr>
                 <?php }?>
             </table>
