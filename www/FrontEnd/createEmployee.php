@@ -25,17 +25,15 @@
             }
         }
     </script>
+
 </head>
 <body>
 <div class="topnav">
     <a href="menu.php">Bienvenido</a>
-    <a href="empleoyeesTable.php">Tabla de empleados</a>
+    <a href="empleoyeesTable.php"> Tabla de empleados</a>
     <a href="createEmployee.php" class="active">Registro de empleados</a>
-    <a href="">Productos</a>
-    <a href="">Promociones</a>
-    <a href="">Pedidos</a>
-    <a >Perfil del Empleado</a>
-    <a href="exitSession.php">Cerrar Sesion</a>
+    <a href="exitSession.php" class="pull-right closeSesion">Cerrar Sesion</a>
+
 </div>
 <h1>Registro de empleado</h1>
 <div class="conteiner">

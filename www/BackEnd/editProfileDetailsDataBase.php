@@ -1,5 +1,6 @@
 <?php
 require "conecta.php";
+session_start();
 $con = conecta();
 $id = $_REQUEST['id'];
 $New_nombre = $_REQUEST['entryName'];

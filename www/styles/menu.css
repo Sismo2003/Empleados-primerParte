@@ -26,3 +26,12 @@ body h1{
     background-color: #7A546B;
     color: white;
 }
+.conteiner{
+    display: grid;
+    place-items: center;
+
+}
+
+.subconteiner{
+    width: 35%;
+}
