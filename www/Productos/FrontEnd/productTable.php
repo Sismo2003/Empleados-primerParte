@@ -30,6 +30,9 @@
                     )
                 }
             }
+            function seeDetails(id){
+                window.location.href='productDetails.php?id='+id;
+            }
         </script>
     </head>
     <body>
@@ -51,11 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="createProduct.php">Nuevo Producto</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="exitSession.php">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
@@ -73,8 +74,9 @@
                     <th class="th-products  cell">Precio</th>
                     <th class="th-products  cell">Disponibles</th>
                     <th class="th-products  cell">Foto</th>
-                    <th class="th-products  cell">EDITAR</th>
-                    <th class="th-products  cell">ELIMINAR</th>
+                    <th class="th-products  cell">Editar</th>
+                    <th class="th-products  cell">Detalle</th>
+                    <th class="th-products  cell">Eliminar</th>
                 </tr>
                 <?php
                 require "../BackEnd/conecta.php";
@@ -100,6 +102,7 @@
                         <td class="cell"><?php echo $productStock ?></td>
                         <td class="cell"> <img src= <?php echo $file ?>></td>
                         <td class="buttons cell"><button type="submit" onclick="editProduct(<?php echo $id ?>)">Editar</button></td>
+                        <td class="buttons cell"><button type="submit" onclick="seeDetails(<?php echo $id ?>)">Detalles</button></td>
                         <td class="buttons cell" ><button onclick="deleteProduct(this,<?php echo $id ?>);return false;">Eliminar</button></td>
                     </tr>
                 <?php }?>

@@ -12,6 +12,7 @@
         <div class="topnav">
             <a href="menu.php">Bienvenido</a>
             <a href="empleoyeesTable.php" class="active"> Tabla de empleados</a>
+            <a href="createEmployee.php" >Registro de empleados</a>
             <a href="exitSession.php" class="pull-right closeSesion">Cerrar Sesion</a>
         </div>
         <br>

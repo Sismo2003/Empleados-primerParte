@@ -27,11 +27,9 @@
                             <a class="nav-link active" href="createProduct.php">Nuevo Producto</a>
                             <span class="visually-hidden">(current)</span>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="exitSession.php">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
