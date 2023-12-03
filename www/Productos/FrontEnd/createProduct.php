@@ -7,7 +7,28 @@
         <link rel="stylesheet" href="../Styles/CreateProduct.css">
         <script src="../JavaScript/jquery-3.3.1.min.js"></script>
         <script src="../JavaScript/newProduct.js"></script>
+        <script>
+            function SendValue(){
+                var product = $('#productName').val();
+                var code = $('#productCode').val();
+                var descr = $('#productDescription').val();
+                var cost = $("#productCost").val();
+                var stock = $("#productavaliable").val();
+                var file = $("#formFile").val();
 
+
+               if (product != "" || code != "" || descr != "" || cost != "" || file != "") {
+                   document.productForm.action='../BackEnd/newProduct.php';
+                   document.productForm.method="POST";
+                   document.productForm.submit();
+
+               }else {
+                   $('#nofull').show();
+                   $('#nofull').html('Faltan Campos por llenar');
+                   setTimeout("$('#nofull').hide(); $('#nofull').html('')", 5000);
+               }
+            }
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -66,7 +87,7 @@
 
                         <div class="form-group">
                             <label for="productavaliable" class="form-label mt-4">Productos Disponibles</label>
-                            <select  name="rol" class="form-select" id="productavaliable">
+                            <select   name="rol" class="form-select" id="productavaliable">
                                 <?php for($i = 0 ; $i != 101 ; $i++){ ?>
                                     <option> <?php echo $i ?></option>
                                 <?php } ?>
@@ -78,9 +99,10 @@
                         </div>
                         <br>
 
-                        <div class="alert alert-dismissible alert-danger nofull"></div>
+                        <div class="alert alert-dismissible alert-danger nofull" id="nofull"></div>
 
                         <button type="submit" onclick="SendValue(); return false;" class="btn btn-primary">Submit</button>
+
                     </fieldset>
                 </form>
             </div>
