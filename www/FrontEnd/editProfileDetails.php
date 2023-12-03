@@ -27,8 +27,8 @@ while($row = $res->fetch_array()) {
     <head>
         <meta charset="UTF-8">
         <title>Edicion de perfil</title>
-        <link rel="stylesheet" href="../styles/editProfileDetails.css">
         <script src="../javaScript/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="../styles/editProfileDetails.css">
         <script src="../javaScript/editProfileDetails.js"></script>
         <script>
             function editvalid(x){
@@ -45,15 +45,20 @@ while($row = $res->fetch_array()) {
                     setTimeout("$('#incompleateData').hide(); $('#incompleateData').html('')",5000);
 
                 }else{
+
+/*
                     if(file == ""){
                         $("#picture").val('NULLVALUEFORPICTUREX456');
                     }
+
                     if(passw == ""){
-                        passw = $('#pass').val('NULLFLAGXF2A0DC036');
+                        $('#pass').val('NULLFLAGXF2A0DC036');
                     }
-                    document.form1.action='../BackEnd/editProfileDetailsDataBase.php';
+
+ */
+                    document.form1.action='../BackEnd/editProfileDetailsDataBase.php?id='+id;
                     document.form1.method='post';
-                    document.form1.valid();
+                    document.form1.submit();
                 }
 
             }

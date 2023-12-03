@@ -1,0 +1,15 @@
+.tabla{
+    border: #0b1219 1px solid;
+    width: 40px;
+    height: 40px;
+}
+.row{
+    display: flex;
+    flex-flow: row wrap ;
+}
+.cell{
+    border: #0b1219 1px solid;
+    background-color: #0b1219;
+    width: 40px;
+    height: 40px;
+}

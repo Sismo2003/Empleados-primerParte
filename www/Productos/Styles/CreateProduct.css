@@ -1,0 +1,17 @@
+.conteiner{
+    display: grid;
+    place-items: center;
+    top: -1%;
+    align-items: baseline;
+}
+.subconteiner{
+    width: 30%;
+    height: 10%;
+
+}
+.nofull{
+    display: none;
+}
+#ExistingEmail{
+    display: none;
+}

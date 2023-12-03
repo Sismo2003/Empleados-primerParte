@@ -43,7 +43,7 @@
                         <p class="mb-1">Agrega un empleadoa la base de datos.</p>
                     </a>
 
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="../Productos/FrontEnd/productTable.php" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Productos</h5>
                         </div>

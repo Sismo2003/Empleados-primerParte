@@ -11,11 +11,6 @@ $New_rol = $_REQUEST['rol'];
 
 $valuesUpdated = 0;
 
-$archivo_name = $_FILES['picture']['name'];
-$archivo_tmp = $_FILES['picture']['tmp_name'];
-$archivo_md5_FinalName = md5($archivo_tmp);
-$type = explode(".",$archivo_name);
-$archivo = '../imgs/' . $archivo_md5_FinalName.'.'.$type[1];
 
 $sql = "SELECT * FROM empleado WHERE status = 1 AND eliminado = 0 AND id = $id";
 $res = $con->query($sql);
@@ -59,15 +54,33 @@ if($Register_rol != $New_rol){
     $res = $con->query($sql);
     $valuesUpdated++;
 }
-if($Register_File != $archivo and $archivo != 'NULLVALUEFORPICTUREX456' ){
-    $archivo_n = $archivo_name;
-    move_uploaded_file($archivo_tmp, $archivo);
-    $sql = "UPDATE empleado SET archivo='$archivo' , archivo_n = '$archivo_n' WHERE id = $id";
+if(isset($_FILES['picture'])) {
+    // Verificar si no hay errores durante la carga del archivo
+    if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) {
+        $archivo_name = $_FILES['picture']['name'];
+        $archivo_tmp = $_FILES['picture']['tmp_name'];
+        $archivo_md5_FinalName = md5($archivo_tmp);
+        $type = explode(".", $archivo_name);
+        $archivo = '../imgs/' . $archivo_md5_FinalName . '.' . $type[1];
 
-    $res = $con->query($sql);
-    $valuesUpdated++;
+        $sql = "SELECT archivo FROM empleado WHERE status = 1 AND eliminado = 0 AND id = $id";
+        $res = $con->query($sql);
+        $row = $res->fetch_array();
+        $Register_File = $row['archivo'];
+
+        // Si el archivo actual es diferente al nuevo, actualizarlo
+        if ($Register_File != $archivo) {
+            $archivo_n = $archivo_name;
+            move_uploaded_file($archivo_tmp, $archivo);
+            $sql = "UPDATE empleado SET archivo='$archivo', archivo_n='$archivo_n' WHERE id = $id";
+            $res = $con->query($sql);
+            $valuesUpdated++;
+        }
+    } else {
+        echo 'No cambios';
+    }
 }
-
+echo 'cambios: '. $valuesUpdated . 'finales.';
 
 header("Location: ../FrontEnd/empleoyeesTable.php");
 ?>
