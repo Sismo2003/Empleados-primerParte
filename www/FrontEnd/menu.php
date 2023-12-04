@@ -49,7 +49,7 @@
                         </div>
                         <p class="mb-1">Revisa a detalle los prodcutos de la empresa</p>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="../Promociones/FrontEnd/showOffers.php" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Promociones</h5>
                         </div>

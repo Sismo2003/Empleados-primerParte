@@ -58,7 +58,7 @@ while($row = $res->fetch_array()) {
 
 
 <br><br><br>
-<h1>Perfil del empleado</h1>
+<h1>Detalle del Producto</h1>
 <div class="conteiner">
     <div class="controllerConteiner">
         <div class="imageConteiner">
