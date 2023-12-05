@@ -12,3 +12,15 @@ function editProduct(id){
     });
 }
 
+/*
+*
+
+
+$itemOrderSeach = "SELECT * FROM items_orders WHERE order_id = '$existingOrderId' AND product_id = '$itemId'";
+$item_ordersRes = $con->query($itemOrderSeach);
+$existingAmount = '';
+while($row = $OrdeRes->fetch_array()) {
+$existingAmount = $row["amount"];
+}
+
+* */

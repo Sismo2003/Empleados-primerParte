@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="../Styles/PruductTable.css">
         <script src="../JavaScript/jquery-3.3.1.min.js"></script>
         <link rel="stylesheet" href="../Styles/bootstrap.min.css">
-        <script src="../JavaScript/product-Table.js"></script>
         <script>
             function deleteProduct(nodo,id){
                 var confirmation = confirm("Seguro que deseas eliminar a este Producto?");
@@ -33,7 +32,21 @@
             function seeDetails(id){
                 window.location.href='productDetails.php?id='+id;
             }
+            function getProduct(id){
+                $.ajax({
+                    url:"../../Orders/BackEnd/newOrder.php",
+                    type:"POST",
+                    data:"id="+id+"&cantidad="+1,
+                    success:function (res){
+                        window.location.href='../../Orders/FrontEnd/orders-Table.php';
+                    },
+                    error:function (){
+                        alert('Archivo no encontrado.');
+                    }
+                });
+            }
         </script>
+        <script src="../JavaScript/product-Table.js"></script>
     </head>
     <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -53,6 +66,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="createProduct.php">Nuevo Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../../Orders/FrontEnd/orders-Table.php">Tabla de pedidos</a>
                     </li>
 
                     <li class="nav-item">
@@ -77,6 +93,7 @@
                     <th class="th-products  cell">Editar</th>
                     <th class="th-products  cell">Detalle</th>
                     <th class="th-products  cell">Eliminar</th>
+                    <th class="th-products  cell">Ordenar</th>
                 </tr>
                 <?php
                 require "../BackEnd/conecta.php";
@@ -104,6 +121,7 @@
                         <td class="buttons cell"><button type="submit" onclick="editProduct(<?php echo $id ?>)">Editar</button></td>
                         <td class="buttons cell"><button type="submit" onclick="seeDetails(<?php echo $id ?>)">Detalles</button></td>
                         <td class="buttons cell" ><button onclick="deleteProduct(this,<?php echo $id ?>);return false;">Eliminar</button></td>
+                        <td class="buttons cell" ><button onclick="getProduct(<?php echo $id ?>)">Ordenar</button></td>
                     </tr>
                 <?php }?>
             </table>

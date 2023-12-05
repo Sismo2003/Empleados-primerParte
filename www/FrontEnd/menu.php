@@ -55,7 +55,7 @@
                         </div>
                         <p class="mb-1">Revisa nuestras promociones del dia!</p>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="../Orders/FrontEnd/orders-Table.php" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Pedidos</h5>
                         </div>
